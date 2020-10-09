@@ -1,0 +1,122 @@
+﻿<Window
+    x:Class="GettingStarted.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:GettingStarted"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"   
+    xmlns:skinmanager ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+    skinmanager:SfSkinManager.VisualStyle="MaterialLight"
+    Title="ContextMenu Demo"
+    Icon="App.ico"
+    WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ObjectDataProvider x:Key="schedulerviewtypes" MethodName="GetValues"
+                            ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type  Type="{x:Type syncfusion:SchedulerViewType}"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <DataTemplate x:Key="addIcon">
+            <Viewbox>
+                <Grid>
+                    <Grid Name="backgroundGrid" Width="32" Height="32" Visibility="Collapsed" />
+                    <Path Data="M23.930958,16.5L25.925001,16.5 25.925001,19 28.417959,19 28.417959,21 25.925001,21 25.925001,23.5 23.930958,23.5 23.930958,21 21.438001,21 21.438001,19 23.930958,19z M24.999989,15.000008C22.24297,15.000008 19.999989,17.242989 19.999989,20.000008 19.999989,22.756996 22.24297,25.000008 24.999989,25.000008 27.757008,25.000008 29.999989,22.756996 29.999989,20.000008 29.999989,17.242989 27.757008,15.000008 24.999989,15.000008z M24.999989,13.000007C28.859974,13.000008 31.999989,16.140999 31.999989,20.000008 31.999989,23.858986 28.859974,27.000008 24.999989,27.000008 21.140003,27.000008 17.999989,23.858986 17.999988,20.000008 17.999989,16.140999 21.140003,13.000008 24.999989,13.000007z M1.9939995,3.9999943L1.9939995,8 23.999983,8 23.999983,3.9999943 19.999989,3.9999943 19.999989,6 17.999988,6 17.999988,3.9999943 7.9999886,3.9999943 7.9999886,6 5.9999886,6 5.9999886,3.9999943z M5.9999886,0L7.9999886,0 7.9999886,1.9999943 17.999988,1.9999943 17.999988,0 19.999989,0 19.999989,1.9999943 25.993982,1.9999943 25.993982,10.959995C25.695982,10.929995 25.393982,10.913995 25.088983,10.913995 24.719983,10.913995 24.356983,10.942995 23.999983,10.986995L23.999983,9.9999998 1.9939995,9.9999998 1.9939995,23.999994 17.033988,23.999994C17.406988,24.730994,17.877988,25.400994,18.427987,25.999994L0,25.999994 0,1.9999943 5.9999886,1.9999943z" 
+                          Stretch="Uniform" Fill="#FF353535" Width="16" Height="16" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <TransformGroup.Children>
+                                    <RotateTransform Angle="0" />
+                                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                                </TransformGroup.Children>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Grid>
+            </Viewbox>
+        </DataTemplate>
+        <DataTemplate x:Key="editIcon">
+            <Viewbox>
+                <Grid>
+                    <Grid Name="backgroundGrid" Width="32" Height="32" Visibility="Collapsed" />
+                    <Path Data="M18.79124,23.685526L18.601897,24.978043 19.800537,24.678988z M25.151192,16.748298L19.897013,21.943004 21.477016,23.498006 26.681581,18.306291z M27.672026,14.255998L26.585849,15.32988 28.109939,16.881461 29.174028,15.819999z M27.708026,11.383995L32.000033,15.848999 21.54238,26.283765 21.551939,26.32204 21.488046,26.33798 21.487016,26.339008 21.486391,26.338393 16.16894,27.66503 17.005967,21.96003 17.043925,21.965624 17.025009,21.947004z M2.017005,3.9170113L2.017005,8.000001 24.20507,8.000001 24.20507,3.9170113 20.000033,3.9170113 20.000033,6.000001 18.000033,6.000001 18.000033,3.9170113 8.0000334,3.9170113 8.0000334,6.000001 6.0000334,6.000001 6.0000334,3.9170113z M6.0000334,0L8.0000334,0 8.0000334,1.900013 18.000033,1.900013 18.000033,0 20.000033,0 20.000033,1.900013 26.222075,1.900013 26.222075,10.977006 24.20507,10.977006 24.20507,10.000001 2.017005,10.000001 2.017005,24.087996 14.12004,24.087996 14.12004,26.104995 0,26.104995 0,1.900013 6.0000334,1.900013z" Stretch="Uniform" 
+                          Fill="#FF353535" Width="16" Height="16" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <TransformGroup.Children>
+                                    <RotateTransform Angle="0" />
+                                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                                </TransformGroup.Children>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Grid>
+            </Viewbox>
+
+        </DataTemplate>
+        <DataTemplate x:Key="deleteIcon">
+            <Viewbox>
+                <Grid>
+                    <Grid Name="backgroundGrid" Width="32" Height="32" Visibility="Collapsed" />
+                    <Path Data="M26.69793,16.820009L28.107933,18.230006 26.339618,19.998313 28.101949,21.761 26.687948,23.174998 24.925436,21.412488 23.157922,23.179994 21.747919,21.769997 23.515435,20.002489 21.752947,18.240003 23.166948,16.825004 24.92976,18.588171z M24.999966,15.000007C22.243008,15.000008 19.999966,17.242989 19.999966,20.000008 19.999966,22.756996 22.243008,25.000008 24.999966,25.000008 27.756924,25.000008 29.999966,22.756996 29.999966,20.000008 29.999966,17.242989 27.756924,15.000008 24.999966,15.000007z M24.999966,13.000008C28.859951,13.000008 31.999966,16.140999 31.999966,20.000008 31.999966,23.858986 28.859951,27.000008 24.999966,27.000008 21.13998,27.000008 17.999966,23.858986 17.999966,20.000008 17.999966,16.140999 21.13998,13.000008 24.999966,13.000008z M1.9939976,3.9999943L1.9939976,8 23.999982,8 23.999982,3.9999943 19.999966,3.9999943 19.999966,6 17.999965,6 17.999965,3.9999943 7.9999657,3.9999943 7.9999657,6 5.9999657,6 5.9999657,3.9999943z M5.9999657,0L7.9999657,0 7.9999657,1.9999943 17.999965,1.9999943 17.999965,0 19.999966,0 19.999966,1.9999943 25.993981,1.9999943 25.993981,10.959995C25.695981,10.929995 25.393981,10.913995 25.088982,10.913994 24.719982,10.913995 24.356982,10.942995 23.999982,10.986995L23.999982,9.9999995 1.9939976,9.9999995 1.9939976,23.999994 17.033987,23.999994C17.406987,24.730994,17.877987,25.400994,18.427986,25.999994L0,25.999994 0,1.9999943 5.9999657,1.9999943z" Stretch="Uniform" 
+                          Fill="#FF353535" Width="16" Height="16" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <TransformGroup.Children>
+                                    <RotateTransform Angle="0" />
+                                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                                </TransformGroup.Children>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Grid>
+            </Viewbox>
+        </DataTemplate>
+    </Window.Resources>
+    <Window.DataContext>
+        <local:MeetingDetails/>
+    </Window.DataContext>
+
+    <Grid>
+        <syncfusion:SfScheduler x:Name="Schedule"
+                ItemsSource="{Binding Events}"
+                MinimumDate="{Binding MinDate}"
+                MaximumDate="{Binding MaxDate}"
+                ViewType="Week">
+            <syncfusion:SfScheduler.MonthViewSettings>
+                <syncfusion:MonthViewSettings AppointmentDisplayMode="Appointment"
+                                        AppointmentDisplayCount="2"/>
+            </syncfusion:SfScheduler.MonthViewSettings>
+            <syncfusion:SfScheduler.AppointmentContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="{Binding Source={x:Static Member=syncfusion:SchedulerCommands.Edit}}"
+                                      CommandParameter ="{Binding}"
+                                      Header="Edit">
+                        <MenuItem.Icon>
+                            <ContentControl ContentTemplate="{StaticResource editIcon}"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Command="{Binding Source={x:Static Member=syncfusion:SchedulerCommands.Delete}}"
+                                      CommandParameter ="{Binding}"
+                                      Header="Delete">
+                        <MenuItem.Icon>
+                            <ContentControl ContentTemplate="{StaticResource deleteIcon}"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </syncfusion:SfScheduler.AppointmentContextMenu>
+            <syncfusion:SfScheduler.CellContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="{Binding Source={x:Static Member=syncfusion:SchedulerCommands.Add}}"
+                              CommandParameter="{Binding}"
+                              Header="Add">
+                        <MenuItem.Icon>
+                            <ContentControl ContentTemplate="{StaticResource addIcon}"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </syncfusion:SfScheduler.CellContextMenu>
+        </syncfusion:SfScheduler>
+    </Grid>
+</Window>
